@@ -1,10 +1,6 @@
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!doctype html>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding= "UTF-8" %>
-<html lang="en">
-
-
-
+<html lang="pt-br">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,6 +9,7 @@
     <meta name="generator" content="Jekyll v3.8.6">
     <title>Login</title>
 
+	<link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/sign-in/">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/admin/css/bootstrap.min.css"/>
 	<meta name="theme-color" content="#563d7c">
@@ -37,53 +34,45 @@
     <link href="${pageContext.request.contextPath}/assets/admin/signin.css" rel="stylesheet">
     
   </head>
-
-    <form class="form-signin" method="post" action="EmpresaController" >
-		  <h1 class="h3 mb-3 font-weight-normal"> Agenda de Contato</h1>
-		  
-		  
-		  <label for="nome" class="sr-only">Nome</label>
-		  <input name="nome" type="nome" id="nome" class="form-control" placeholder="Nome" required autofocus>
-		   <br> </br>
-		  
-		  <label for="sobrenome" class="sr-only">Sobrenome</label>
-		  <input name="Sobrenome" type="Sobrenome" id="sobrenome" class="form-control" placeholder="Sobrenome" required autofocus>
-		   <br> </br>
-		  
-		  
+  
+  <body class="text-center">
+    <form class="form-signin">
+		  <h1 class="h3 mb-3 font-weight-normal">Agenda de Contato</h1>
 		  <label for="email" class="sr-only">Email</label>
-		  <input name="email" type="email" id="email" class="form-control" placeholder="E-Mail" required autofocus>
-		 <br> </br>
-		 
+		  <input type="email" id="email" name="email" class="form-control" placeholder="login" required autofocus>
+		    <br/>
 		  <label for="senha" class="sr-only">Senha</label>
-		  <input name="senha" type="password" id="senha" class="form-control" placeholder="Senha" required>
-		  
-		  <button ="validar()" class="btn btn-info btn-sm" type="submit"> Cadastrar </button>
+		  <input type="password" id="senha" name="senha" class="form-control" placeholder="Senha" required>
+		  <input id="btnLogar" class="btn btn-lg btn-primary btn-block" type="submit" value="Entrar">
 
-		  <tr id="Nome">
-		  <tr id="Sobrenome">
-		  <tr id="E-Mail">
-		  <tr id="Senha">
-		  
-		  <td>
-          <button class="remocao" data-ref="Nome, Sobrenome, E-mail, Senha">Editar</button>
-          
-          </td>
-          </tr>
-          </tr>
-          </tr>
-          </tr>
-
-          <br> </br>
-          
-          <a href="${pageContext.request.contextPath}/admin/listaUsuario/UsuCadastr.jsp">Click Aqui: Lista de usuarios Cadastrados</a>
-
-		  
-      		
+		  <a href="${pageContext.request.contextPath}/admin/listaUsuarioCadast/UsuCadastr.jsp">Cadastre-se aqui</a>
 	</form>
+</body>
 	
 	
-
+	<script>
+		const valida = () => {
+			
+			event.preventDefault();
+		    let email = document.getElementById("email").value;
+		    let senha = document.getElementById("senha").value;
+		    
+		    if(email === '' && senha === ''){
+			    alert('Preencha os Campos!');
+			    
+		    }
+		    if(email === 'lucas@gmail.com' && senha === '123'){
+		    	alert('Acesso Liberado com Sucesso');		    
+			    window.location.href ='http://localhost:8080/agenda-acme/index.jsp';
+		    }
+		    else{
+		    	alert('Erro! Tente Novamente! ');
+		    	window.location.href ='http://localhost:8080/agenda-acme/login.jsp';
+			    
+		    }
+		  }
+  
+	</script>
 	
 </body>
 

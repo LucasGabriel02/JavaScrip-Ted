@@ -32,7 +32,8 @@
 		  <label for="senha" class="sr-only">Senha</label>
 		  <input type="password" id="senha" name="senha" class="form-control" placeholder="Senha" required>
 		  <br/>
-		  <input id="btnLogar" class="btn btn-lg btn-primary btn-block" type="submit" value="Salvar">
+		  <input id="btnLogar" class="btn btn-lg btn-primary btn-block" type="submit" value="Cadastrar">
+		  <input type='button' value="Remover" onclick="RemoverCampos()">
 		  <br/>
 		  
 	</form>
